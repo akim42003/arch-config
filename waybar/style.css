@@ -1,0 +1,125 @@
+@define-color background #121318;
+@define-color on_background #e2e2e9;
+@define-color surface #121318;
+@define-color on_surface #e2e2e9;
+@define-color primary #b0c6ff;
+@define-color secondary #c0c6dc;
+@define-color outline #8f9099;
+@define-color inverse_surface #e2e2e9;
+
+* {
+	font-family: "JetBrainsMono Nerd Font Propo", "Font Awesome 6 Free", sans-serif;
+	font-weight: bold;
+	min-height: 0;
+	font-size: 11px;
+}
+
+window#waybar {
+	background-color: transparent;
+	padding: 0px;
+	border: 0px;
+}
+
+tooltip {
+	color: @inverse_surface;
+	background: rgba(0, 0, 0, 0.8);
+	border-radius: 10px
+}
+
+tooltip label {
+	color: @inverse_surface;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+	background-color: transparent;
+	color: @secondary;
+	padding: 0px;
+	margin: 10px 12px;
+}
+
+.modules-left>*,
+.modules-center>*,
+.modules-right>* {
+	background-color: alpha(@surface, 0.5);
+	border-radius: 20px;
+	padding: 6px 18px;
+	margin: 0px 6px;
+}
+
+#workspaces {
+	margin: 0px;
+	padding: 6px 8px;
+	border-radius: 20px;
+}
+
+#workspaces button {
+	color: @outline;
+	box-shadow: none;
+	text-shadow: none;
+	padding: 0px 10px;
+	margin: 0px;
+	border-radius: 20px;
+	transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+	background-color: transparent;
+}
+
+#workspaces button:hover {
+	color: @primary;
+}
+
+#workspaces button.active {
+	color: @inverse_surface;
+	background-color: alpha(@primary, 0.3);
+}
+
+#workspaces button.urgent {
+	color: #f53c3c;
+}
+
+#battery.charging {
+	color: #26a64b;
+}
+
+#battery.warning:not(.charging) {
+	color: #f0c674;
+}
+
+#battery.critical:not(.charging) {
+	color: #f53c3c;
+}
+
+#pulseaudio.muted {
+	color: #cc3436;
+}
+
+#network.disconnected {
+	color: #cc3436;
+}
+
+#clock,
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#temperature,
+#battery,
+#custom-power {
+	padding: 6px;
+	border-radius: 20px;
+}
+
+#tray {
+	padding: 6px;
+	border-radius: 20px;
+}
+
+#custom-power {
+	color: @primary;
+}
+
+#custom-power:hover {
+	color: #f53c3c;
+	background-color: alpha(#f53c3c, 0.1);
+}
